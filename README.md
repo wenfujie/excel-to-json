@@ -26,3 +26,11 @@
 1. 运行指令 `npm run serve` 启动web项目
 2. 在页面中上传 Excel 文件后，可看到解析后的内容
 3. 将内容复制到其他工程使用即可
+
+### 部署静态页面
+
+1. 在 main 分支开发并打包得到 dist 文件夹
+2. 复制 /dist 内容到当前 `page` 分支根目录下（保持 index.html 在根目录）
+3. 提交当前分支代码，1分钟后访问 `https://wenf.top/excel-to-json/` 即可
+
+[静态页面访问地址](https://wenf.top/excel-to-json/)
