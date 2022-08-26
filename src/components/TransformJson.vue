@@ -16,11 +16,6 @@
     <button class="btn" @click="copy" data-clipboard-target="#text">
       点击复制
     </button>
-    <!-- <h2>josn-to-excel</h2>
-    <textarea name="josnData" id="josn" cols="100" rows="30"></textarea>
-    <br />
-    <br />
-    <button class="btn" @click="transfer">转化</button> -->
   </div>
 </template>
 
@@ -28,13 +23,11 @@
 import XLSX from "xlsx";
 import Clipboard from "clipboard";
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
-  },
+  name: "TransformJson",
+  props: {},
   data() {
     return {
-      jsondata: {},
+      jsondata: {}
     };
   },
   methods: {
@@ -46,12 +39,12 @@ export default {
         try {
           const data = ex.target.result;
           const workbook = XLSX.read(data, {
-            type: "binary",
+            type: "binary"
           });
           const wsname = workbook.SheetNames[0]; //取第一张表
           const sheet2JSONOpts = {
             /** Default value for null/undefined values */
-            defval: "", //给defval赋值为空的字符串
+            defval: "" //给defval赋值为空的字符串
           };
           const ws = XLSX.utils.sheet_to_json(
             workbook.Sheets[wsname],
@@ -82,7 +75,7 @@ export default {
           document.getElementById("text").innerHTML = JSON.stringify(
             this.jsondata,
             null,
-            4
+            2
           );
         } catch (error) {
           console.log(
@@ -133,7 +126,7 @@ export default {
       //     type: "application/octet-stream",
       //   })
       // );
-    },
+    }
     // saveAs(obj, fileName) {
     //   //当然可以自定义简单的下载文件实现方式
 
@@ -168,7 +161,7 @@ export default {
     //         return buff;
     //     }
     // }
-  },
+  }
 };
 </script>
 
